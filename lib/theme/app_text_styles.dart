@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'app_colors.dart';
-import 'app_fonts.dart';
-
 class AppTextStyles {
   const AppTextStyles._();
   // heading
@@ -24,30 +21,33 @@ class AppTextStyles {
   static const body14 = TextStyle(
     decoration: TextDecoration.none,
     fontSize: 14,
-    fontFamily: AppFonts.tajawal,
+    // fontFamily: AppFonts.tajawal,
   );
   static const body16 = TextStyle(
     decoration: TextDecoration.none,
     fontSize: 16,
-    fontFamily: AppFonts.tajawal,
+    // fontFamily: AppFonts.tajawal,
   );
 
   static const headingH3 = TextStyle(
     decoration: TextDecoration.none,
     fontSize: 18,
-    fontFamily: AppFonts.tajawal,
+    fontWeight: FontWeight.bold,
+    // fontFamily: AppFonts.tajawal,
   );
 
   static const headingH2 = TextStyle(
     decoration: TextDecoration.none,
     fontSize: 22,
-    fontFamily: AppFonts.tajawal,
+    fontWeight: FontWeight.bold,
+    // fontFamily: AppFonts.tajawal,
   );
 
   static const headingH1 = TextStyle(
     decoration: TextDecoration.none,
     fontSize: 26,
-    fontFamily: AppFonts.tajawal,
+    fontWeight: FontWeight.bold,
+    // fontFamily: AppFonts.tajawal,
   );
 
   // // body xs

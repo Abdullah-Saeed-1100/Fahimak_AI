@@ -5,8 +5,8 @@ class AppColors {
 
   // primary
   static const primary = Color(0xFF6a53e7);
-  // static const primary25 = Color(0xffb5d8c5);
-  // static const primary50 = Color(0xff91c6a9);
+  static const primary25 = Color.fromARGB(255, 246, 244, 255);
+  static const primary50 = Color(0xFFE8E7E7);
   // static const primary100 = Color(0xff5fab82);
   // static const primary200 = Color(0xff409b69);
   // static const primary300 = Color(0xff20643f);
