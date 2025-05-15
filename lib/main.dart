@@ -1,4 +1,7 @@
 import 'package:fahimak_ai/on_boarding/widgets/on_boarding_view_body.dart';
+import 'package:fahimak_ai/theme/app_colors.dart';
+import 'package:fahimak_ai/theme/app_fonts.dart';
+import 'package:fahimak_ai/theme/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,6 +16,17 @@ class FahimakAi extends StatelessWidget {
     return MaterialApp(
       title: 'Fahimak AI -- dev.Abdullah Saeed Bagar',
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        fontFamily: AppFonts.tajawal,
+        primaryTextTheme: TextTheme(),
+        textTheme: TextTheme(
+          bodyLarge: AppTextStyles.body16,
+          bodyMedium: AppTextStyles.body14,
+          headlineSmall: AppTextStyles.headingH3,
+          headlineMedium: AppTextStyles.headingH2,
+          headlineLarge: AppTextStyles.headingH1,
+        ),
+      ),
       home: const OnBoardingViewBody(),
     );
   }
