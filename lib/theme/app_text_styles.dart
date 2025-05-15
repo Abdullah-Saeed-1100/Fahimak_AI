@@ -1,3 +1,8 @@
+import 'package:flutter/material.dart';
+
+import 'app_colors.dart';
+import 'app_fonts.dart';
+
 class AppTextStyles {
   const AppTextStyles._();
   // heading
@@ -16,33 +21,34 @@ class AppTextStyles {
   //   height: 1.4,
   // );
 
-  // static const headingH4 = TextStyle(
-  //   fontFamily: AppFonts.manrope,
-  //   fontWeight: FontWeight.bold,
-  //   fontSize: 24,
-  //   height: 1.5,
-  // );
+  static const body14 = TextStyle(
+    decoration: TextDecoration.none,
+    fontSize: 14,
+    fontFamily: AppFonts.tajawal,
+  );
+  static const body16 = TextStyle(
+    decoration: TextDecoration.none,
+    fontSize: 16,
+    fontFamily: AppFonts.tajawal,
+  );
 
-  // static const headingH3 = TextStyle(
-  //   fontFamily: AppFonts.manrope,
-  //   fontWeight: FontWeight.w600,
-  //   fontSize: 32,
-  //   height: 1.4,
-  // );
+  static const headingH3 = TextStyle(
+    decoration: TextDecoration.none,
+    fontSize: 18,
+    fontFamily: AppFonts.tajawal,
+  );
 
-  // static const headingH2 = TextStyle(
-  //   fontFamily: AppFonts.manrope,
-  //   fontWeight: FontWeight.w600,
-  //   fontSize: 40,
-  //   height: 1.2,
-  // );
+  static const headingH2 = TextStyle(
+    decoration: TextDecoration.none,
+    fontSize: 22,
+    fontFamily: AppFonts.tajawal,
+  );
 
-  // static const headingH1 = TextStyle(
-  //   fontFamily: AppFonts.manrope,
-  //   fontWeight: FontWeight.w600,
-  //   fontSize: 48,
-  //   height: 1.2,
-  // );
+  static const headingH1 = TextStyle(
+    decoration: TextDecoration.none,
+    fontSize: 26,
+    fontFamily: AppFonts.tajawal,
+  );
 
   // // body xs
   // static const xsRegular = TextStyle(
