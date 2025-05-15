@@ -1,3 +1,4 @@
+import 'package:fahimak_ai/core/views/root.dart';
 import 'package:fahimak_ai/core/widgets/custom_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -87,7 +88,11 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                       curve: Curves.ease,
                     );
                   } else {
-                    // أكشن عند الانتهاء من الـ OnBoarding
+                    // Navigator push replace
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => Root()),
+                    );
                   }
                 },
               ),

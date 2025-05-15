@@ -17,6 +17,7 @@ class FahimakAi extends StatelessWidget {
       title: 'Fahimak AI -- dev.Abdullah Saeed Bagar',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        brightness: Brightness.light,
         fontFamily: AppFonts.tajawal,
         primaryTextTheme: TextTheme(),
         textTheme: TextTheme(
