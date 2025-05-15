@@ -1,7 +1,7 @@
-import 'package:fahimak_ai/on_boarding/widgets/on_boarding_view_body.dart';
-import 'package:fahimak_ai/theme/app_colors.dart';
-import 'package:fahimak_ai/theme/app_fonts.dart';
-import 'package:fahimak_ai/theme/app_text_styles.dart';
+import 'package:fahimak_ai/features/on_boarding/widgets/on_boarding_view_body.dart';
+import 'package:fahimak_ai/core/utils/app_colors.dart';
+import 'package:fahimak_ai/core/utils/app_fonts.dart';
+import 'package:fahimak_ai/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 void main() {

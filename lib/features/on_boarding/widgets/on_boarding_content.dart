@@ -1,4 +1,4 @@
-import 'package:fahimak_ai/widgets/custom_animated.dart';
+import 'package:fahimak_ai/core/widgets/custom_animated.dart';
 import 'package:flutter/material.dart';
 
 class OnBoardingContent extends StatelessWidget {

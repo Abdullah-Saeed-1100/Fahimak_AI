@@ -1,4 +1,4 @@
-import 'package:fahimak_ai/theme/app_colors.dart';
+import 'package:fahimak_ai/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class PrimaryButton extends StatelessWidget {

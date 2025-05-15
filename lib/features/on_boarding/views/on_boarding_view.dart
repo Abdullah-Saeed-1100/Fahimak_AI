@@ -1,4 +1,4 @@
-import 'package:fahimak_ai/on_boarding/widgets/on_boarding_view_body.dart';
+import 'package:fahimak_ai/features/on_boarding/widgets/on_boarding_view_body.dart';
 import 'package:flutter/material.dart';
 
 class OnBoardingView extends StatelessWidget {

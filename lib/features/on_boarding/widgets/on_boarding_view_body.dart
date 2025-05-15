@@ -1,10 +1,10 @@
-import 'package:fahimak_ai/widgets/custom_animated.dart';
+import 'package:fahimak_ai/core/widgets/custom_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import '../../theme/app_colors.dart';
-import '../../theme/app_images.dart';
+import '../../../core/utils/app_colors.dart';
+import '../../../core/utils/app_images.dart';
 import 'on_boarding_content.dart';
-import '../../widgets/primary_button.dart';
+import '../../../core/widgets/primary_button.dart';
 
 class OnBoardingViewBody extends StatefulWidget {
   const OnBoardingViewBody({super.key});
