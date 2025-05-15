@@ -1,5 +1,4 @@
 import 'package:fahimak_ai/theme/app_colors.dart';
-import 'package:fahimak_ai/theme/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class PrimaryButton extends StatelessWidget {
@@ -36,10 +35,9 @@ class PrimaryButton extends StatelessWidget {
           text,
           style:
               textStyle ??
-              AppTextStyles.headingH1.copyWith(
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
+              Theme.of(
+                context,
+              ).textTheme.headlineLarge?.copyWith(color: Colors.white),
         ),
       ),
     );
