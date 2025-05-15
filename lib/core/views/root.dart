@@ -18,12 +18,9 @@ class _RootState extends State<Root> {
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Scaffold(
-        body: IndexedStack(index: _currentIndex, children: taps),
-        bottomNavigationBar: _buildNavigationBar(),
-      ),
+    return Scaffold(
+      body: IndexedStack(index: _currentIndex, children: taps),
+      bottomNavigationBar: _buildNavigationBar(),
     );
   }
 
@@ -36,7 +33,7 @@ class _RootState extends State<Root> {
         });
       },
       selectedIndex: _currentIndex,
-      backgroundColor: AppColors.primary25,
+      backgroundColor: Colors.white,
 
       // context.isDarkMode
       //     ? AppColors.backgroundColorDark
