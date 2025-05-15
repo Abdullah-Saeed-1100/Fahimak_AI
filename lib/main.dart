@@ -1,3 +1,4 @@
+import 'package:fahimak_ai/on_boarding/widgets/on_boarding_view_body.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,7 +12,8 @@ class FahimakAi extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Fahimak AI -- dev.Abdullah Saeed Bagar',
-      home: const Scaffold(body: Center(child: Text('Fahimak AI'))),
+      debugShowCheckedModeBanner: false,
+      home: const OnBoardingViewBody(),
     );
   }
 }
