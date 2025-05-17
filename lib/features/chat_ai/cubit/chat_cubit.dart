@@ -52,24 +52,19 @@ class ChatCubit extends Cubit<ChatState> {
     emit(state.copyWith(messages: [...state.messages, newMessage]));
     textController.clear();
     scrollToBottom();
+    addDummyReply();
   }
 
   void addDummyReply() {
-    // Future.delayed(const Duration(seconds: 1), () {
-    //   // Simulated delay
-    //   final reply = ChatMessage(
-    //     text: 'This is a dummy reply.',
-    //     timestamp: DateTime.now(),
-    //     type: MessageType.incoming,
-    //   );
-    //   emit(ChatState(messages: [...state.messages, reply]));
-    // });
-    final reply = ChatMessage(
-      text: 'This is a dummy reply.',
-      timestamp: DateTime.now(),
-      type: MessageType.incoming,
-    );
-    emit(state.copyWith(messages: [...state.messages, reply]));
+    Future.delayed(const Duration(seconds: 1), () {
+      final reply = ChatMessage(
+        text: "مرحبا! كيف يمكنني مساعدتك؟",
+        timestamp: DateTime.now(),
+        type: MessageType.incoming,
+      );
+      emit(state.copyWith(messages: [...state.messages, reply]));
+      scrollToBottom();
+    });
   }
 
   @override

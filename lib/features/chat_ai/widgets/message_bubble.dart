@@ -19,14 +19,13 @@ class MessageBubble extends StatelessWidget {
         decoration: BoxDecoration(
           color: isOutgoing ? Colors.white : context.theme.primaryColor,
           borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(12.0),
-            topRight: Radius.circular(12.0),
-            bottomLeft: isOutgoing ? Radius.circular(12.0) : Radius.circular(0),
-            bottomRight:
-                isOutgoing ? Radius.circular(0) : Radius.circular(12.0),
+            bottomLeft: Radius.circular(12.0),
+            bottomRight: Radius.circular(12.0),
+            topLeft: isOutgoing ? Radius.circular(12.0) : Radius.circular(0),
+            topRight: isOutgoing ? Radius.circular(0) : Radius.circular(12.0),
           ),
         ),
-        child: Text(
+        child: SelectableText(
           message.text,
           textDirection: TextDirection.rtl,
           style: TextStyle(color: isOutgoing ? Colors.black : Colors.white),
