@@ -1,7 +1,9 @@
 import 'package:fahimak_ai/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import '../../features/chat_ai/views/chat_ai_view.dart';
 import '../../features/settings/views/settings_view.dart';
+import '../utils/app_images.dart';
 
 class Root extends StatefulWidget {
   const Root({super.key});
@@ -34,20 +36,33 @@ class _RootState extends State<Root> {
       },
       selectedIndex: _currentIndex,
       backgroundColor: Colors.white,
+      // backgroundColor: AppColors.primaryDark,
 
       // context.isDarkMode
       //     ? AppColors.backgroundColorDark
       //     : AppColors.backgroundColorLight,
       labelTextStyle: WidgetStateProperty.all(
         // TextStyle(fontSize: 14, fontFamily: "Kufam", color: Colors.black),
-        Theme.of(context).textTheme.bodyLarge,
+        Theme.of(context).textTheme.bodyMedium,
       ),
       destinations: [
         NavigationDestination(
           icon:
               _currentIndex == 0
-                  ? const Icon(Icons.home, color: AppColors.primary50)
-                  : const Icon(Icons.home, color: AppColors.primary),
+                  ? SvgPicture.asset(
+                    AppImages.robotActive,
+                    colorFilter: const ColorFilter.mode(
+                      AppColors.primary50,
+                      BlendMode.srcIn,
+                    ),
+                  )
+                  : SvgPicture.asset(
+                    AppImages.robotActive,
+                    colorFilter: const ColorFilter.mode(
+                      AppColors.primary,
+                      BlendMode.srcIn,
+                    ),
+                  ),
           // _currentIndex == 0
           //     ? const Icon(IconlyBold.home, color: AppColors.iconColor)
           //     : const Icon(IconlyBroken.home),

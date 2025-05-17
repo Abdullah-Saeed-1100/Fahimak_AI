@@ -12,8 +12,15 @@ class SettingsView extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.primary10,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        foregroundColor: Colors.transparent,
+        backgroundColor: AppColors.primary15,
+        // backgroundColor: AppColors.primaryDark,
+        // backgroundColor: Colors.white,
+        // foregroundColor: AppColors.primary10,
+        // elevation: 0,
+        scrolledUnderElevation: 0,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(16)),
+        ),
         systemOverlayStyle: SystemUiOverlayStyle.dark,
         title: Center(
           child: Text(

@@ -4,6 +4,9 @@ extension ContextExt on BuildContext {
   // get is dark mode
   bool get isDarkMode => Theme.of(this).brightness == Brightness.dark;
 
+  // get theme
+  ThemeData get theme => Theme.of(this);
+
   //   // get device size
   //   double get deviceHeight => MediaQuery.sizeOf(this).height;
   //   double get deviceWidth => MediaQuery.sizeOf(this).width;

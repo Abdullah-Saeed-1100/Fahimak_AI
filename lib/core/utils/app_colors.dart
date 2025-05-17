@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class AppColors {
   const AppColors._();
 
-  // primary
+  // primary light
   static const primary = Color(0xFF6a53e7);
   static const primary10 = Color(0xFFF7F7F7);
   static const primary15 = Color(0xFFEFEFEF);
@@ -14,7 +14,12 @@ class AppColors {
   // static const primary200 = Color(0xff409b69);
   // static const primary300 = Color(0xff20643f);
 
-  // // grey scale
+  // primary dark
+  static const primaryDark = Color(0xFF19191B);
+  // static const primaryDark10 = Color(0xFF1E1E1E);
+  // static const primaryDark15 = Color(0xFF2A2A2A);
+
+  // grey scale
   // static const grey900 = Color(0xff0d0d12);
   // static const grey800 = Color(0xff1a1b25);
   // static const grey700 = Color(0xff272835);

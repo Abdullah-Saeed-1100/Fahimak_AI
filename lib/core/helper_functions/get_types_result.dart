@@ -1,1 +1,6 @@
-List<String> getTypesResult() => ["أكثر إبداع", "وقت أقصر", "وقت أطول"];
+List<String> getTypesResult() => [
+  "أكثر إبداع",
+  "وقت أقصر",
+  "وقت أطول",
+  "وقت صحيح",
+];
