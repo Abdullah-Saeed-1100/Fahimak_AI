@@ -50,6 +50,8 @@ class ChatCubit extends Cubit<ChatState> {
       type: MessageType.outgoing,
     );
     emit(state.copyWith(messages: [...state.messages, newMessage]));
+    textController.clear();
+    scrollToBottom();
   }
 
   void addDummyReply() {

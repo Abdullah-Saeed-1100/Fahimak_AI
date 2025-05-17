@@ -1,3 +1,4 @@
+import 'package:fahimak_ai/core/utils/app_colors.dart';
 import 'package:fahimak_ai/features/on_boarding/widgets/on_boarding_view_body.dart';
 import 'package:fahimak_ai/core/utils/app_fonts.dart';
 import 'package:fahimak_ai/core/utils/app_text_styles.dart';
@@ -22,6 +23,7 @@ class FahimakAi extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.light,
         fontFamily: AppFonts.tajawal,
+        primaryColor: AppColors.primary,
         primaryTextTheme: TextTheme(),
         textTheme: TextTheme(
           bodyLarge: AppTextStyles.body16,

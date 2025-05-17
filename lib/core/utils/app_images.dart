@@ -13,4 +13,7 @@ class AppImages {
   // root
   static const String robotActive = '${path}robot_active.svg';
   static const String robotInactive = '${path}robot_inactive.svg';
+
+  // chat
+  static const String send = '${path}send.svg';
 }
