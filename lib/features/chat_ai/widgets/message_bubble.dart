@@ -1,3 +1,4 @@
+import 'package:fahimak_ai/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import '../models/chat_message.dart';
 
@@ -18,7 +19,7 @@ class MessageBubble extends StatelessWidget {
         margin: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 8.0),
         padding: const EdgeInsets.all(10.0),
         decoration: BoxDecoration(
-          color: isOutgoing ? Colors.green : Colors.white,
+          color: isOutgoing ? Colors.white : AppColors.primary,
           // isOutgoing
           //     ? theme.colorScheme.primaryContainer
           //     : theme.colorScheme.surfaceVariant,
@@ -34,7 +35,7 @@ class MessageBubble extends StatelessWidget {
           message.text,
           textDirection: TextDirection.rtl,
           style: TextStyle(
-            color: isOutgoing ? Colors.white : Colors.black,
+            color: isOutgoing ? Colors.black : Colors.white,
             // isOutgoing
             //     ? theme.colorScheme.onPrimaryContainer
             //     : theme.colorScheme.onSurfaceVariant,

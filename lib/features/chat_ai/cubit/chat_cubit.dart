@@ -1,109 +1,47 @@
 import 'dart:async';
 
 import 'package:fahimak_ai/features/chat_ai/cubit/chat_state.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../dummy_data/dummy_data.dart';
 import '../models/chat_message.dart'; // For Future.delayed
 
-// Dummy data (can be moved to a separate file if preferred)
-final List<ChatMessage> dummyMessages = [
-  ChatMessage(
-    text: 'مرحبًا!',
-    timestamp: DateTime.now().subtract(Duration(minutes: 2)),
-    type: MessageType.incoming,
-  ),
-  ChatMessage(
-    text: "كيف الحال؟",
-    timestamp: DateTime.now().subtract(Duration(minutes: 1, seconds: 30)),
-    type: MessageType.incoming,
-  ),
-  ChatMessage(
-    text: 'مرحبًا! كيف يمكنني مساعدتك؟',
-    timestamp: DateTime.now().subtract(Duration(minutes: 1)),
-    type: MessageType.outgoing,
-  ),
-  ChatMessage(
-    text: "أنا بخير، شكرًا! فقط أختبر تطبيق الدردشة هذا.",
-    timestamp: DateTime.now().subtract(Duration(minutes: 0, seconds: 45)),
-    type: MessageType.outgoing,
-  ),
-  ChatMessage(
-    text: "سعيد لسماع ذلك!",
-    timestamp: DateTime.now().subtract(Duration(minutes: 0, seconds: 20)),
-    type: MessageType.incoming,
-  ),
-  ChatMessage(
-    text: "أخبرني إذا كان لديك أي أسئلة.",
-    timestamp: DateTime.now().subtract(Duration(minutes: 0, seconds: 10)),
-    type: MessageType.incoming,
-  ),
-  ChatMessage(
-    text: 'مرحبًا!',
-    timestamp: DateTime.now().subtract(Duration(minutes: 2)),
-    type: MessageType.incoming,
-  ),
-  ChatMessage(
-    text: "كيف الحال؟",
-    timestamp: DateTime.now().subtract(Duration(minutes: 1, seconds: 30)),
-    type: MessageType.incoming,
-  ),
-  ChatMessage(
-    text: 'مرحبًا! كيف يمكنني مساعدتك؟',
-    timestamp: DateTime.now().subtract(Duration(minutes: 1)),
-    type: MessageType.outgoing,
-  ),
-  ChatMessage(
-    text: "أنا بخير، شكرًا! فقط أختبر تطبيق الدردشة هذا.",
-    timestamp: DateTime.now().subtract(Duration(minutes: 0, seconds: 45)),
-    type: MessageType.outgoing,
-  ),
-  ChatMessage(
-    text: "سعيد لسماع ذلك!",
-    timestamp: DateTime.now().subtract(Duration(minutes: 0, seconds: 20)),
-    type: MessageType.incoming,
-  ),
-  ChatMessage(
-    text: "أخبرني إذا كان لديك أي أسئلة.",
-    timestamp: DateTime.now().subtract(Duration(minutes: 0, seconds: 10)),
-    type: MessageType.incoming,
-  ),
-  ChatMessage(
-    text: 'مرحبًا!',
-    timestamp: DateTime.now().subtract(Duration(minutes: 2)),
-    type: MessageType.incoming,
-  ),
-  ChatMessage(
-    text: "كيف الحال؟",
-    timestamp: DateTime.now().subtract(Duration(minutes: 1, seconds: 30)),
-    type: MessageType.incoming,
-  ),
-  ChatMessage(
-    text: 'مرحبًا! كيف يمكنني مساعدتك؟',
-    timestamp: DateTime.now().subtract(Duration(minutes: 1)),
-    type: MessageType.outgoing,
-  ),
-  ChatMessage(
-    text: "أنا بخير، شكرًا! فقط أختبر تطبيق الدردشة هذا.",
-    timestamp: DateTime.now().subtract(Duration(minutes: 0, seconds: 45)),
-    type: MessageType.outgoing,
-  ),
-  ChatMessage(
-    text: "سعيد لسماع ذلك!",
-    timestamp: DateTime.now().subtract(Duration(minutes: 0, seconds: 20)),
-    type: MessageType.incoming,
-  ),
-  ChatMessage(
-    text: "أخبرني إذا كان لديك أي أسئلة.",
-    timestamp: DateTime.now().subtract(Duration(minutes: 0, seconds: 10)),
-    type: MessageType.incoming,
-  ),
-];
-
 class ChatCubit extends Cubit<ChatState> {
-  ChatCubit() : super(ChatState(messages: dummyMessages));
+  ChatCubit()
+    : super(
+        ChatState(messages: dummyMessages, showScrollToBottomButton: false),
+      ) {
+    scrollController.addListener(_scrollListener);
+  }
 
-  void sendMessage(String text) {
-    if (text.trim().isEmpty) {
+  final TextEditingController textController = TextEditingController();
+  final ScrollController scrollController = ScrollController();
+
+  void _scrollListener() {
+    final atBottom =
+        scrollController.position.pixels + 100 >=
+        scrollController.position.maxScrollExtent;
+    if (state.showScrollToBottomButton == atBottom) {
+      emit(state.copyWith(showScrollToBottomButton: !atBottom));
+    }
+  }
+
+  void scrollToBottom() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (scrollController.hasClients) {
+        scrollController.animateTo(
+          scrollController.position.maxScrollExtent,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeOut,
+        );
+      }
+    });
+  }
+
+  void sendMessage() {
+    final text = textController.text.trim();
+    if (text.isEmpty) {
       return;
     }
     final newMessage = ChatMessage(
@@ -111,7 +49,7 @@ class ChatCubit extends Cubit<ChatState> {
       timestamp: DateTime.now(),
       type: MessageType.outgoing,
     );
-    emit(ChatState(messages: [...state.messages, newMessage]));
+    emit(state.copyWith(messages: [...state.messages, newMessage]));
   }
 
   void addDummyReply() {
@@ -129,6 +67,15 @@ class ChatCubit extends Cubit<ChatState> {
       timestamp: DateTime.now(),
       type: MessageType.incoming,
     );
-    emit(ChatState(messages: [...state.messages, reply]));
+    emit(state.copyWith(messages: [...state.messages, reply]));
+  }
+
+  @override
+  Future<void> close() {
+    textController.dispose();
+    scrollController.removeListener(_scrollListener);
+    scrollController.dispose();
+
+    return super.close();
   }
 }
