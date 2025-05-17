@@ -1,9 +1,9 @@
-import 'package:fahimak_ai/core/views/root.dart';
 import 'package:fahimak_ai/core/widgets/custom_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../core/utils/app_colors.dart';
 import '../../../core/utils/app_images.dart';
+import '../../chat_ai/views/chat_ai_view.dart';
 import 'on_boarding_content.dart';
 import '../../../core/widgets/primary_button.dart';
 
@@ -91,7 +91,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                     // Navigator push replace
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (context) => Root()),
+                      MaterialPageRoute(builder: (context) => ChatAiView()),
                     );
                   }
                 },
