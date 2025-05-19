@@ -15,7 +15,7 @@ class ChatAiViewBody extends StatelessWidget {
           child: Stack(
             children: [
               // messages
-              MessagesChatWidget(),
+              Positioned.fill(child: MessagesChatWidget()),
               // show scroll to bottom button
               ShowScrollToBottomButtonWidget(),
             ],

@@ -1,0 +1,25 @@
+import 'package:dartz/dartz.dart';
+import 'package:flutter/widgets.dart';
+import '../../../core/errors/failures.dart';
+import '../../../core/services/chat_service.dart';
+import '../../../core/services/gemini_ai_service.dart';
+import '../domain/chat_repo.dart';
+
+class ChatRepoImpl implements ChatRepo {
+  final ChatService chatService;
+
+  ChatRepoImpl({required this.chatService});
+  @override
+  Future<Either<Failure, String>> sendMessage({required String message}) async {
+    try {
+      final response = await chatService.sendMessage(
+        message: message,
+        model: GeminiModels.gemini15Flash,
+      );
+      return Right(response);
+    } on Exception catch (e) {
+      debugPrint("Error in sendMessage in ChatRepoImpl: $e");
+      return Left(ServerFailure(message: e.toString()));
+    }
+  }
+}

@@ -17,4 +17,8 @@ class AppImages {
 
   // chat
   static const String send = '${path}send.svg';
+
+  // animations
+  static const String loadingAnimation =
+      'assets/animations/loading_animation.json';
 }
