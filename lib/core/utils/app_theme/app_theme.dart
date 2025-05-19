@@ -12,13 +12,45 @@ class AppTheme {
       brightness: Brightness.light,
       fontFamily: AppFonts.tajawal,
       primaryColor: AppColors.primary,
-      primaryTextTheme: TextTheme(),
+      cardColor: AppColors.primaryCard,
+      scaffoldBackgroundColor: AppColors.primaryBackgrond,
+      appBarTheme: AppBarTheme(
+        backgroundColor: AppColors.primaryBackgrondAppBar,
+        scrolledUnderElevation: 0,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(16)),
+        ),
+        titleTextStyle: AppTextStyles.headingH2.copyWith(
+          color: Colors.black,
+          fontFamily: AppFonts.tajawal,
+        ),
+        centerTitle: true,
+      ),
+      primaryTextTheme: TextTheme(
+        labelMedium: AppTextStyles.body14.copyWith(color: Colors.black),
+      ),
       textTheme: TextTheme(
-        bodyLarge: AppTextStyles.body16,
-        bodyMedium: AppTextStyles.body14,
-        headlineSmall: AppTextStyles.headingH3,
-        headlineMedium: AppTextStyles.headingH2,
-        headlineLarge: AppTextStyles.headingH1,
+        bodyLarge: AppTextStyles.body16.copyWith(color: AppColors.primaryText),
+        bodyMedium: AppTextStyles.body14.copyWith(color: AppColors.primaryText),
+        headlineSmall: AppTextStyles.headingH3.copyWith(
+          color: AppColors.primaryText,
+        ),
+        headlineMedium: AppTextStyles.headingH2.copyWith(color: Colors.black),
+        headlineLarge: AppTextStyles.headingH1.copyWith(
+          color: AppColors.primaryText,
+        ),
+      ),
+      inputDecorationTheme: InputDecorationTheme(
+        hintStyle: AppTextStyles.body14.copyWith(
+          color: AppColors.primaryHintText,
+        ),
+        fillColor: Colors.white,
+        filled: true,
+        contentPadding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
+        border: OutlineInputBorder(
+          borderSide: BorderSide.none,
+          borderRadius: BorderRadius.all(Radius.circular(12.0)),
+        ),
       ),
     );
   }
@@ -28,14 +60,52 @@ class AppTheme {
     return ThemeData(
       brightness: Brightness.dark,
       fontFamily: AppFonts.tajawal,
-      primaryColor: AppColors.primary,
-      primaryTextTheme: TextTheme(),
+      primaryColor: AppColors.darkPrimary,
+      cardColor: AppColors.darkCard,
+      scaffoldBackgroundColor: AppColors.darkBackground,
+      appBarTheme: AppBarTheme(
+        backgroundColor: AppColors.darkBackgrondAppBar,
+        scrolledUnderElevation: 0,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(16)),
+        ),
+        titleTextStyle: AppTextStyles.headingH2.copyWith(
+          color: AppColors.darkTextPrimary,
+          fontFamily: AppFonts.tajawal,
+        ),
+        centerTitle: true,
+      ),
+      primaryTextTheme: TextTheme(
+        labelMedium: AppTextStyles.body14.copyWith(
+          color: AppColors.darkTextPrimary,
+        ),
+      ),
       textTheme: TextTheme(
-        bodyLarge: AppTextStyles.body16,
-        bodyMedium: AppTextStyles.body14,
-        headlineSmall: AppTextStyles.headingH3,
-        headlineMedium: AppTextStyles.headingH2,
-        headlineLarge: AppTextStyles.headingH1,
+        bodyLarge: AppTextStyles.body16.copyWith(
+          color: AppColors.darkTextPrimary,
+        ),
+        bodyMedium: AppTextStyles.body14.copyWith(
+          color: AppColors.darkTextPrimary,
+        ),
+        headlineSmall: AppTextStyles.headingH3.copyWith(
+          color: AppColors.darkTextPrimary,
+        ),
+        headlineMedium: AppTextStyles.headingH2.copyWith(
+          color: AppColors.darkTextPrimary,
+        ),
+        headlineLarge: AppTextStyles.headingH1.copyWith(
+          color: AppColors.darkTextPrimary,
+        ),
+      ),
+      inputDecorationTheme: InputDecorationTheme(
+        hintStyle: AppTextStyles.body14.copyWith(color: AppColors.darkHintText),
+        fillColor: AppColors.darkBackgrondAppBar,
+        filled: true,
+        contentPadding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
+        border: OutlineInputBorder(
+          borderSide: BorderSide.none,
+          borderRadius: BorderRadius.all(Radius.circular(12.0)),
+        ),
       ),
     );
   }

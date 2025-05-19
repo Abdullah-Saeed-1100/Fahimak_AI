@@ -30,7 +30,6 @@ class MessagesChatWidget extends StatelessWidget {
           HeaderSettingWidget(
             text:
                 "يمكنك الآن بدء الدردشة من هنا 🗨️...\n أن جاهز لتقديم أقصى ما لدي لمساعدتك 🫡...",
-            backgroundColor: Colors.white,
           ),
         ],
       );

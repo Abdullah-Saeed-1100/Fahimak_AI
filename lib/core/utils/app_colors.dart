@@ -5,8 +5,12 @@ class AppColors {
 
   // primary light
   static const primary = Color(0xFF6a53e7);
-  static const primary10 = Color(0xFFF7F7F7);
-  static const primary15 = Color(0xFFEFEFEF);
+  static const primaryBackgrond = Color(0xFFF7F7F7);
+  static const primaryBackgrondAppBar = Color(0xFFEFEFEF);
+  static const primaryCard = Colors.white;
+  static const primaryText = Color(0xFFFFFFFF); // palette.text.primary
+  static const primaryHintText = Colors.black54;
+
   static const primary25 = Color.fromARGB(255, 246, 244, 255);
   static const primary50 = Color(0xFFE8E7E7);
   static const primary200 = Color.fromARGB(255, 114, 167, 225);
@@ -14,59 +18,14 @@ class AppColors {
   // static const primary200 = Color(0xff409b69);
   // static const primary300 = Color(0xff20643f);
 
-  // primary dark
-  static const primaryDark = Color(0xFF19191B);
-  // static const primaryDark10 = Color(0xFF1E1E1E);
-  // static const primaryDark15 = Color(0xFF2A2A2A);
+  // dark
+  static const darkPrimary = Color(0xFF6a53e7);
+  static const darkBackground = Color(
+    0xFF121212,
+  ); // palette.background.default & paper
+  static const darkBackgrondAppBar = Color(0xFF282828);
+  static const darkCard = Color(0xFF282828);
 
-  // grey scale
-  // static const grey900 = Color(0xff0d0d12);
-  // static const grey800 = Color(0xff1a1b25);
-  // static const grey700 = Color(0xff272835);
-  // static const grey600 = Color(0xff36394a);
-  // static const grey500 = Color(0xff666d80);
-  // static const grey400 = Color(0xff818898);
-  // static const grey300 = Color(0xffa4acb9);
-  // static const grey200 = Color(0xffc1c7d0);
-  // static const grey100 = Color(0xffdfe1e7);
-  // static const grey50 = Color(0xffeceff3);
-  // static const grey25 = Color(0xfff6f8fa);
-  // static const grey0 = Color(0xffffffff);
-
-  // //error
-  // static const error300 = Color(0xff710e21);
-  // static const error200 = Color(0xff96132c);
-  // static const error100 = Color(0xffdf1c41);
-  // static const error50 = Color(0xffed8296);
-  // static const error25 = Color(0xfffadbe1);
-  // static const error0 = Color(0xfffff0f3);
-
-  // //warning
-  // static const warning300 = Color(0xff5c3d1f);
-  // static const warning200 = Color(0xff966422);
-  // static const warning100 = Color(0xffffbe4c);
-  // static const warning50 = Color(0xfffcda83);
-  // static const warning25 = Color(0xfffaedcc);
-  // static const warning0 = Color(0xfffff6e0);
-
-  // // success
-  // static const success300 = Color(0xff184e44);
-  // static const success200 = Color(0xff28806f);
-  // static const success100 = Color(0xff40c4aa);
-  // static const success50 = Color(0xff9ee1d4);
-  // static const success25 = Color(0xffddf3ef);
-  // static const success0 = Color(0xffeffefa);
-
-  // //sky
-  // static const sky300 = Color(0xff0c4e6e);
-  // static const sky200 = Color(0xff116b97);
-  // static const sky100 = Color(0xff33cfff);
-  // static const sky25 = Color(0xffd1f0fa);
-  // static const sky0 = Color(0xfff0fbff);
-
-  // // shadow
-  // static const shadow1Color = Color(0xff1A13A1);
-
-  // // extra
-  // static const darkFillColor = Color(0xff07371D);
+  static const darkTextPrimary = Color(0xFFFFFFFF); // palette.text.primary
+  static const darkHintText = Color(0xFF8B8B8B);
 }

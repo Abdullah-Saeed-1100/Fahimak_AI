@@ -8,8 +8,14 @@ class ThemeCubit extends Cubit<ThemeMode> {
   static ThemeMode _getInitialTheme() {
     final isDarkMode = CacheHelper.getBool(CacheKeys.isDarkMode);
     if (isDarkMode) {
+      debugPrint(
+        "========= >> [ isDarkMode ] in _getInitialTheme() << =========",
+      );
       return ThemeMode.dark;
     } else {
+      debugPrint(
+        "========= >> [ isLightMode ] in _getInitialTheme() << =========",
+      );
       return ThemeMode.light;
     }
   }
@@ -18,9 +24,11 @@ class ThemeCubit extends Cubit<ThemeMode> {
     if (state == ThemeMode.dark) {
       await CacheHelper.saveBool(CacheKeys.isDarkMode, false);
       emit(ThemeMode.light);
+      debugPrint("========= >> [ isLightMode ] << =========");
     } else {
       await CacheHelper.saveBool(CacheKeys.isDarkMode, true);
       emit(ThemeMode.dark);
+      debugPrint("========= >> [ isDarkMode ] << =========");
     }
   }
 }

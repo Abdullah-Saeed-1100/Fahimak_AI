@@ -1,3 +1,4 @@
+import 'package:fahimak_ai/core/extensions/app_extensions.dart';
 import 'package:fahimak_ai/core/utils/app_images.dart';
 import 'package:fahimak_ai/core/widgets/custom_app_bar.dart';
 import 'package:fahimak_ai/features/chat_ai/presentation/cubit/chat_cubit.dart';
@@ -8,10 +9,9 @@ import 'package:fahimak_ai/features/chat_ai/presentation/widgets/chat_ai_view_bo
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-
 import '../../../../core/services/gemini_ai_service.dart';
-import '../../../../core/utils/app_colors.dart';
 import '../../../settings/presentation/views/settings_view.dart';
+import '../widgets/custom_theme_button.dart';
 
 class ChatAiView extends StatelessWidget {
   const ChatAiView({super.key});
@@ -22,9 +22,10 @@ class ChatAiView extends StatelessWidget {
       create:
           (context) => ChatCubit(ChatRepoImpl(chatService: GeminiAiService())),
       child: Scaffold(
-        backgroundColor: AppColors.primary10,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         appBar: CustomAppBar(
           title: "الدردشة",
+          leading: CustomThemeButton(),
           actions: [
             GestureDetector(
               onTap: () {
@@ -36,7 +37,14 @@ class ChatAiView extends StatelessWidget {
                 decoration: BoxDecoration(),
                 child: Padding(
                   padding: const EdgeInsets.all(12.0),
-                  child: SvgPicture.asset(AppImages.settings, height: 22),
+                  child: SvgPicture.asset(
+                    AppImages.settings,
+                    height: 22,
+                    colorFilter: ColorFilter.mode(
+                      context.theme.primaryColor,
+                      BlendMode.srcIn,
+                    ),
+                  ),
                 ),
               ),
             ),

@@ -26,7 +26,8 @@ class MessageBubble extends StatelessWidget {
         ).copyWith(left: isOutgoing ? 24.0 : 8, right: isOutgoing ? 8 : 24.0),
         padding: const EdgeInsets.all(10.0),
         decoration: BoxDecoration(
-          color: isOutgoing ? Colors.white : context.theme.primaryColor,
+          color:
+              isOutgoing ? context.theme.primaryColor : context.theme.cardColor,
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(12.0),
             bottomRight: Radius.circular(12.0),
@@ -44,8 +45,14 @@ class MessageBubble extends StatelessWidget {
                 : SelectableText(
                   message.text,
                   textDirection: TextDirection.rtl,
-                  style: TextStyle(
-                    color: isOutgoing ? Colors.black : Colors.white,
+                  textAlign: TextAlign.justify,
+                  style: context.theme.textTheme.bodyMedium?.copyWith(
+                    color:
+                        isOutgoing
+                            ? null
+                            : context.isDarkMode
+                            ? Colors.white
+                            : Colors.black,
                   ),
                 ),
       ),

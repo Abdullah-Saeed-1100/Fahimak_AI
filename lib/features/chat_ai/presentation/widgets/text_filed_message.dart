@@ -1,4 +1,5 @@
 import 'package:fahimak_ai/core/extensions/app_extensions.dart';
+import 'package:fahimak_ai/core/utils/app_colors.dart';
 import 'package:fahimak_ai/core/utils/app_shadows.dart';
 import 'package:fahimak_ai/core/utils/app_text_styles.dart';
 import 'package:fahimak_ai/features/chat_ai/presentation/cubit/chat_cubit.dart';
@@ -22,20 +23,10 @@ class TextFiledMessage extends StatelessWidget {
         // keyboardType: TextInputType.text,
         textInputAction: TextInputAction.newline,
         textDirection: TextDirection.rtl,
+        style: context.theme.primaryTextTheme.labelMedium,
         decoration: const InputDecoration(
-          fillColor: Colors.white,
-          filled: true,
           hintText: "أكتب سؤالك هنا ...",
           hintTextDirection: TextDirection.rtl,
-          hintStyle: AppTextStyles.body14,
-          contentPadding: EdgeInsets.symmetric(
-            vertical: 16.0,
-            horizontal: 16.0,
-          ),
-          border: OutlineInputBorder(
-            borderSide: BorderSide.none,
-            borderRadius: BorderRadius.all(Radius.circular(12.0)),
-          ),
         ),
         cursorHeight: 25,
         cursorRadius: Radius.circular(50),

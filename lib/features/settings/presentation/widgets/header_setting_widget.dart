@@ -1,22 +1,17 @@
-import 'package:fahimak_ai/core/utils/app_colors.dart';
+import 'package:fahimak_ai/core/extensions/app_extensions.dart';
 import 'package:fahimak_ai/core/utils/app_images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class HeaderSettingWidget extends StatelessWidget {
   final String text;
-  final Color? backgroundColor;
-  const HeaderSettingWidget({
-    super.key,
-    required this.text,
-    this.backgroundColor,
-  });
+  const HeaderSettingWidget({super.key, required this.text});
 
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: backgroundColor ?? AppColors.primary15,
+        color: context.theme.cardColor,
         borderRadius: BorderRadius.circular(16),
       ),
 

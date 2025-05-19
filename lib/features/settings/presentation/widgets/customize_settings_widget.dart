@@ -1,3 +1,4 @@
+import 'package:fahimak_ai/core/extensions/app_extensions.dart';
 import 'package:fahimak_ai/core/utils/app_images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -15,7 +16,7 @@ class CustomizeSettingsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: context.theme.cardColor,
         borderRadius: BorderRadius.circular(16),
       ),
 
