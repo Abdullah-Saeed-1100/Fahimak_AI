@@ -17,6 +17,8 @@ class AppImages {
 
   // chat
   static const String send = '${path}send.svg';
+  static const String lightMode = '${path}light_mode.svg';
+  static const String darkMode = '${path}dark_mode.svg';
 
   // animations
   static const String loadingAnimation =

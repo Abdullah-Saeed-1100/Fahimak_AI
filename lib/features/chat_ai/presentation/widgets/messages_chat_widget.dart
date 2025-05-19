@@ -47,7 +47,6 @@ class MessagesChatWidget extends StatelessWidget {
                 HeaderSettingWidget(
                   text:
                       " لو تبغاني أعطيك نتائج أكثر دقة تناسب ماتحتاجة, قم بالذهاب لصفحة الإعداات وقم بتخصيص إعدادات المحادثة لتناسب ماتريد...",
-                  // backgroundColor: Colors.white,
                 ),
               ],
             )

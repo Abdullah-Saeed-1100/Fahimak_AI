@@ -23,7 +23,10 @@ class AppTheme {
         titleTextStyle: AppTextStyles.headingH2.copyWith(
           color: Colors.black,
           fontFamily: AppFonts.tajawal,
+          height: 2,
         ),
+        actionsIconTheme: IconThemeData(color: Colors.black),
+
         centerTitle: true,
       ),
       primaryTextTheme: TextTheme(
@@ -72,7 +75,9 @@ class AppTheme {
         titleTextStyle: AppTextStyles.headingH2.copyWith(
           color: AppColors.darkTextPrimary,
           fontFamily: AppFonts.tajawal,
+          height: 2,
         ),
+        actionsIconTheme: IconThemeData(color: AppColors.darkTextPrimary),
         centerTitle: true,
       ),
       primaryTextTheme: TextTheme(

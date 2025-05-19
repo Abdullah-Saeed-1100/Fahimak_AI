@@ -1,4 +1,3 @@
-import 'package:fahimak_ai/core/extensions/app_extensions.dart';
 import 'package:fahimak_ai/core/utils/app_images.dart';
 import 'package:fahimak_ai/core/widgets/custom_app_bar.dart';
 import 'package:fahimak_ai/features/chat_ai/presentation/cubit/chat_cubit.dart';
@@ -41,7 +40,7 @@ class ChatAiView extends StatelessWidget {
                     AppImages.settings,
                     height: 22,
                     colorFilter: ColorFilter.mode(
-                      context.theme.primaryColor,
+                      Theme.of(context).appBarTheme.actionsIconTheme!.color!,
                       BlendMode.srcIn,
                     ),
                   ),
