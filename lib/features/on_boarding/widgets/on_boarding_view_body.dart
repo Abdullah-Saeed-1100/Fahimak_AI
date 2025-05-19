@@ -1,6 +1,7 @@
 import 'package:fahimak_ai/core/widgets/custom_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import '../../../core/services/cache_helper.dart';
 import '../../../core/utils/app_colors.dart';
 import '../../../core/utils/app_images.dart';
 import '../../chat_ai/views/chat_ai_view.dart';
@@ -81,15 +82,22 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
             child: CustomAnimated(
               child: PrimaryButton(
                 text: _currentPage == 0 ? 'التالي' : 'لنبدأ',
-                onParsed: () {
+                onParsed: () async {
                   if (_currentPage == 0) {
                     _pageController.nextPage(
                       duration: const Duration(milliseconds: 400),
                       curve: Curves.ease,
                     );
                   } else {
+                    // save Done Onboarding
+                    await CacheHelper.saveBool(
+                      CacheKeys.onboardingCompleted,
+                      true,
+                    );
+
                     // Navigator push replace
                     Navigator.pushReplacement(
+                      // ignore: use_build_context_synchronously
                       context,
                       MaterialPageRoute(builder: (context) => ChatAiView()),
                     );
