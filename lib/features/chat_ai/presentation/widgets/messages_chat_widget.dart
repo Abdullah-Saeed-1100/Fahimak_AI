@@ -1,12 +1,12 @@
-import 'package:fahimak_ai/features/chat_ai/cubit/chat_cubit.dart';
-import 'package:fahimak_ai/features/chat_ai/widgets/loading_response_message_widget.dart';
-import 'package:fahimak_ai/features/chat_ai/widgets/message_bubble.dart';
+import 'package:fahimak_ai/features/chat_ai/presentation/cubit/chat_cubit.dart';
+import 'package:fahimak_ai/features/chat_ai/presentation/widgets/loading_response_message_widget.dart';
+import 'package:fahimak_ai/features/chat_ai/presentation/widgets/message_bubble.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../core/utils/app_images.dart';
-import '../../settings/widgets/header_setting_widget.dart';
+import '../../../../core/utils/app_images.dart';
+import '../../../settings/presentation/widgets/header_setting_widget.dart';
 
 class MessagesChatWidget extends StatelessWidget {
   const MessagesChatWidget({super.key});

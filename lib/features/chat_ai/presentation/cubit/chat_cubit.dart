@@ -1,11 +1,11 @@
 import 'dart:async';
-import 'package:fahimak_ai/features/chat_ai/cubit/chat_state.dart';
-import 'package:fahimak_ai/features/chat_ai/cubit/gemini_state.dart';
+import 'package:fahimak_ai/features/chat_ai/presentation/cubit/chat_state.dart';
+import 'package:fahimak_ai/features/chat_ai/presentation/cubit/gemini_state.dart';
 import 'package:fahimak_ai/features/chat_ai/domain/chat_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../dummy_data/dummy_data.dart';
-import '../models/chat_message.dart';
+import '../../dummy_data/dummy_data.dart';
+import '../../data/models/chat_message.dart';
 
 class ChatCubit extends Cubit<ChatState> {
   final ChatRepo chatRepo;

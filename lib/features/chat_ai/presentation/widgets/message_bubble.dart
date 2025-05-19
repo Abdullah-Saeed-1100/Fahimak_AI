@@ -1,8 +1,8 @@
 import 'package:fahimak_ai/core/extensions/app_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import '../../../core/utils/app_images.dart';
-import '../models/chat_message.dart';
+import '../../../../core/utils/app_images.dart';
+import '../../data/models/chat_message.dart';
 
 class MessageBubble extends StatelessWidget {
   /// The message data to display.

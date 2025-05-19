@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
-import 'package:fahimak_ai/features/chat_ai/cubit/gemini_state.dart';
-import '../models/chat_message.dart';
+import 'package:fahimak_ai/features/chat_ai/presentation/cubit/gemini_state.dart';
+import '../../data/models/chat_message.dart';
 
 class ChatState extends Equatable {
   final List<ChatMessage> messages;

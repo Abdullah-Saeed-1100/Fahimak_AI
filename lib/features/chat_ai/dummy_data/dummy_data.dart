@@ -1,5 +1,5 @@
 // Dummy data (can be moved to a separate file if preferred)
-import '../models/chat_message.dart';
+import '../data/models/chat_message.dart';
 
 List<ChatMessage> get dummyMessages => [
   ChatMessage(

@@ -1,4 +1,4 @@
-import 'package:fahimak_ai/features/chat_ai/cubit/chat_cubit.dart';
+import 'package:fahimak_ai/features/chat_ai/presentation/cubit/chat_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

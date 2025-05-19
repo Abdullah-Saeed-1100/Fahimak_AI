@@ -1,6 +1,6 @@
 import 'package:fahimak_ai/core/utils/app_colors.dart';
-import 'package:fahimak_ai/features/chat_ai/views/chat_ai_view.dart';
-import 'package:fahimak_ai/features/on_boarding/widgets/on_boarding_view_body.dart';
+import 'package:fahimak_ai/features/chat_ai/presentation/views/chat_ai_view.dart';
+import 'package:fahimak_ai/features/on_boarding/presentation/widgets/on_boarding_view_body.dart';
 import 'package:fahimak_ai/core/utils/app_fonts.dart';
 import 'package:fahimak_ai/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';

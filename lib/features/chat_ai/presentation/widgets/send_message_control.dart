@@ -1,5 +1,5 @@
-import 'package:fahimak_ai/features/chat_ai/widgets/send_message_button.dart';
-import 'package:fahimak_ai/features/chat_ai/widgets/text_filed_message.dart';
+import 'package:fahimak_ai/features/chat_ai/presentation/widgets/send_message_button.dart';
+import 'package:fahimak_ai/features/chat_ai/presentation/widgets/text_filed_message.dart';
 import 'package:flutter/material.dart';
 
 class SendMessageControl extends StatelessWidget {

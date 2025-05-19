@@ -1,8 +1,8 @@
-import 'package:fahimak_ai/features/chat_ai/cubit/chat_cubit.dart';
+import 'package:fahimak_ai/features/chat_ai/presentation/cubit/chat_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../cubit/gemini_state.dart';
-import '../models/chat_message.dart';
+import '../../data/models/chat_message.dart';
 import 'message_bubble.dart';
 
 class LoadingResponseMessageWidget extends StatelessWidget {

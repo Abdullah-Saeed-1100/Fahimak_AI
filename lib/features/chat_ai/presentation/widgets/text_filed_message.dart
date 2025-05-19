@@ -1,7 +1,7 @@
 import 'package:fahimak_ai/core/extensions/app_extensions.dart';
 import 'package:fahimak_ai/core/utils/app_shadows.dart';
 import 'package:fahimak_ai/core/utils/app_text_styles.dart';
-import 'package:fahimak_ai/features/chat_ai/cubit/chat_cubit.dart';
+import 'package:fahimak_ai/features/chat_ai/presentation/cubit/chat_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

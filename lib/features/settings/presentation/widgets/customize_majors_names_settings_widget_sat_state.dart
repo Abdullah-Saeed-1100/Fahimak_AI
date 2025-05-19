@@ -1,9 +1,9 @@
 import 'package:fahimak_ai/core/helper_functions/get_majors_names.dart';
-import 'package:fahimak_ai/features/settings/widgets/chip_widget.dart';
-import 'package:fahimak_ai/features/settings/widgets/customize_settings_widget.dart';
+import 'package:fahimak_ai/features/settings/presentation/widgets/chip_widget.dart';
+import 'package:fahimak_ai/features/settings/presentation/widgets/customize_settings_widget.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/services/cache_helper.dart';
+import '../../../../core/services/cache_helper.dart';
 
 class CustomizeMajorsNamesSettingsWidgetSatState extends StatefulWidget {
   const CustomizeMajorsNamesSettingsWidgetSatState({super.key});
