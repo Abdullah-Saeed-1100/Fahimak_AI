@@ -80,6 +80,6 @@ class CacheHelper {
 class CacheKeys {
   static const String majorName = 'majorName';
   static const String resultType = 'resultType';
-  static const String appTheme = 'appTheme'; // e.g., "light", "dark", "system"
+  static const String isDarkMode = 'appTheme'; // e.g., "light", "dark",
   static const String onboardingCompleted = 'onboardingCompleted';
 }
