@@ -39,8 +39,8 @@ class MessageBubble extends StatelessWidget {
             isLoading
                 ? Lottie.asset(
                   AppImages.loadingAnimation,
-                  height: 35,
-                  width: 35,
+                  height: 15,
+                  width: 60,
                 )
                 : SelectableText(
                   message.text,
