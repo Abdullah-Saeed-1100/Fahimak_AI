@@ -46,7 +46,7 @@ class MessagesChatWidget extends StatelessWidget {
                 SvgPicture.asset(AppImages.aiRobotSmall, height: 150),
                 HeaderSettingWidget(
                   text:
-                      " لو تبغاني أعطيك نتائج أكثر دقة تناسب ماتحتاجة, قم بالذهاب لصفحة الإعداات وقم بتخصيص إعدادات المحادثة لتناسب ماتريد...",
+                      " لو تبغاني أعطيك نتائج أكثر دقة تناسب ماتحتاجة, قم بالذهاب لصفحة الإعدادات وقم بتخصيص إعدادات المحادثة لتناسب ماتريد...",
                 ),
               ],
             )

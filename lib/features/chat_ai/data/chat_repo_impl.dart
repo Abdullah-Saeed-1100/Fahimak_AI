@@ -14,7 +14,7 @@ class ChatRepoImpl implements ChatRepo {
     try {
       final response = await chatService.sendMessage(
         message: message,
-        model: GeminiModels.gemini15Flash,
+        model: GeminiModels.gemini25FlashPreview,
       );
       return Right(response);
     } on Exception catch (e) {
