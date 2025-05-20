@@ -20,18 +20,21 @@ class _CustomizeMajorsNamesSettingsWidgetSatStateState
     return CustomizeSettingsWidget(
       title: "يمكنني أن أقترح عليك بعض التخصصات التي يمكنك أن تسألني عنها...",
       children: List.generate(
-        getMajorsNames().length,
+        MajorsNames.values.length,
         (index) => ChipWidget(
-          name: getMajorsNames()[index],
+          name: MajorsNames.values[index].nameArabic,
           isSelected:
               CacheHelper.getString(CacheKeys.majorName) ==
-              getMajorsNames()[index],
+              MajorsNames.values[index].name,
           onTap: () async {
             await CacheHelper.saveString(
               CacheKeys.majorName,
-              getMajorsNames()[index],
+              MajorsNames.values[index].name,
             );
             setState(() {});
+            debugPrint(
+              "======= majorName key => ${CacheHelper.getString(CacheKeys.majorName)}",
+            );
           },
         ),
       ),

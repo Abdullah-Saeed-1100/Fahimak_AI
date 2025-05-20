@@ -47,3 +47,6 @@ app.*.map.json
 
 # app keys
 lib/core/utils/api_keys.dart
+
+# system_instructions_for_chat_costmize
+lib/core/utils/system_instructions_for_chat_costmize.dart
