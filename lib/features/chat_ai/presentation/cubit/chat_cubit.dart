@@ -101,6 +101,13 @@ class ChatCubit extends Cubit<ChatState> {
     );
   }
 
+  // clear all messages
+  Future<void> clearMessages() async {
+    await chatRepo.clearMessages();
+    emit(state.copyWith(messages: []));
+    // scrollToBottom();
+  }
+
   /// Adds a dummy AI reply (for testing/demo).
   // void addDummyReply() {
   //   Future.delayed(const Duration(seconds: 1), () {

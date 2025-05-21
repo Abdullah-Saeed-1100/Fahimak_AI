@@ -20,18 +20,20 @@ class _CustomizeTypesResultSettingsWidgetSetStateState
       title: "كيف تحب أن تكون إجابتي؟",
       children: List.generate(
         getTypesResult().length,
-        (index) => ChipWidget(
-          name: getTypesResult()[index],
-          isSelected:
-              CacheHelper.getString(CacheKeys.resultType) ==
-              getTypesResult()[index],
-          onTap: () async {
-            await CacheHelper.saveString(
-              CacheKeys.resultType,
-              getTypesResult()[index],
-            );
-            setState(() {});
-          },
+        (index) => CustomAnimatedForChipWidget(
+          chipWidgetInput: ChipWidgetInput(
+            name: getTypesResult()[index],
+            isSelected:
+                CacheHelper.getString(CacheKeys.resultType) ==
+                getTypesResult()[index],
+            onTap: () async {
+              await CacheHelper.saveString(
+                CacheKeys.resultType,
+                getTypesResult()[index],
+              );
+              setState(() {});
+            },
+          ),
         ),
       ),
     );

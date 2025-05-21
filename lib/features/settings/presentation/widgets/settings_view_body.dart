@@ -1,4 +1,5 @@
 import 'package:fahimak_ai/core/utils/app_images.dart';
+import 'package:fahimak_ai/features/settings/presentation/widgets/clear_chat_messages_widget.dart';
 import 'package:fahimak_ai/features/settings/presentation/widgets/customize_majors_names_settings_widget_sat_state.dart';
 import 'package:fahimak_ai/features/settings/presentation/widgets/customize_types_result_settings_widget_set_state.dart';
 import 'package:fahimak_ai/features/settings/presentation/widgets/header_setting_widget.dart';
@@ -31,6 +32,10 @@ class SettingsViewBody extends StatelessWidget {
 
             // Customize Majors Settings
             CustomizeMajorsNamesSettingsWidgetSatState(),
+            SizedBox(height: 12),
+
+            // Container for clear chat history
+            ClearChatMessagesWidget(),
             SizedBox(height: 24),
           ],
         ),

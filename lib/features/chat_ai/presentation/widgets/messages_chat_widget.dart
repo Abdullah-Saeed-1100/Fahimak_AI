@@ -23,16 +23,19 @@ class MessagesChatWidget extends StatelessWidget {
     // });
 
     if (messagesChatState.isEmpty) {
-      return Column(
-        // mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          SvgPicture.asset(AppImages.aiRobotSmall, height: 150),
-          HeaderSettingWidget(
-            text:
-                "يمكنك الآن بدء الدردشة من هنا 🗨️...\n أن جاهز لتقديم أقصى ما لدي لمساعدتك 🫡...",
-          ),
-        ],
+      return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SvgPicture.asset(AppImages.aiRobotSmall, height: 150),
+            HeaderSettingWidget(
+              text:
+                  "يمكنك الآن بدء الدردشة من هنا 🗨️...\n أنا جاهز لتقديم أقصى ما لدي لمساعدتك 🫡...",
+            ),
+          ],
+        ),
       );
     }
 
@@ -41,17 +44,19 @@ class MessagesChatWidget extends StatelessWidget {
       itemCount: messagesChatState.length,
       itemBuilder: (context, index) {
         final message = messagesChatState[index];
-        return index == 0
-            ? Column(
-              children: [
-                SvgPicture.asset(AppImages.aiRobotSmall, height: 150),
-                HeaderSettingWidget(
-                  text:
-                      " لو تبغاني أعطيك نتائج أكثر دقة تناسب ماتحتاجة, قم بالذهاب لصفحة الإعدادات وقم بتخصيص إعدادات المحادثة لتناسب ماتريد...",
-                ),
-              ],
-            )
-            : index != messagesChatState.length - 1
+        return
+        // index == 0
+        //     ? Column(
+        //       children: [
+        //         SvgPicture.asset(AppImages.aiRobotSmall, height: 150),
+        //         HeaderSettingWidget(
+        //           text:
+        //               " لو تبغاني أعطيك نتائج أكثر دقة تناسب ماتحتاجة, قم بالذهاب لصفحة الإعدادات وقم بتخصيص إعدادات المحادثة لتناسب ماتريد...",
+        //         ),
+        //       ],
+        //     )
+        //     :
+        index != messagesChatState.length - 1
             ? MessageBubble(message: message)
             : Column(
               children: [

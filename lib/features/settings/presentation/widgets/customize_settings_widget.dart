@@ -5,11 +5,13 @@ import 'package:flutter_svg/svg.dart';
 
 class CustomizeSettingsWidget extends StatelessWidget {
   final String title;
+  final String? subtitle;
   final List<Widget> children;
   const CustomizeSettingsWidget({
     super.key,
     required this.title,
     required this.children,
+    this.subtitle,
   });
 
   @override
@@ -35,7 +37,7 @@ class CustomizeSettingsWidget extends StatelessWidget {
                   child: Text(
                     title,
                     textDirection: TextDirection.rtl,
-                    style: Theme.of(context).textTheme.bodyMedium,
+                    style: Theme.of(context).primaryTextTheme.labelMedium,
                   ),
                 ),
               ],
@@ -48,6 +50,13 @@ class CustomizeSettingsWidget extends StatelessWidget {
               runSpacing: 8,
               children: children,
             ),
+            SizedBox(height: 12),
+            if (subtitle != null)
+              Text(
+                subtitle!,
+                textDirection: TextDirection.rtl,
+                style: Theme.of(context).primaryTextTheme.labelSmall,
+              ),
           ],
         ),
       ),
