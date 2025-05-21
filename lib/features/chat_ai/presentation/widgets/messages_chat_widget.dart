@@ -24,7 +24,8 @@ class MessagesChatWidget extends StatelessWidget {
 
     if (messagesChatState.isEmpty) {
       return Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        // mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SvgPicture.asset(AppImages.aiRobotSmall, height: 150),
           HeaderSettingWidget(

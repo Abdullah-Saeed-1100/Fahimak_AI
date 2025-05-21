@@ -8,8 +8,10 @@ import 'package:fahimak_ai/features/chat_ai/presentation/widgets/chat_ai_view_bo
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import '../../../../core/services/gemini_ai_service.dart';
 import '../../../settings/presentation/views/settings_view.dart';
+import '../../data/models/chat_message.dart';
 import '../widgets/custom_theme_button.dart';
 
 class ChatAiView extends StatelessWidget {
@@ -18,8 +20,15 @@ class ChatAiView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create:
-          (context) => ChatCubit(ChatRepoImpl(chatService: GeminiAiService())),
+      create: (context) {
+        final box = Hive.box<ChatMessage>(
+          'messagesBox',
+        ); // <— إحصل على الصندوق المفتوح
+
+        return ChatCubit(
+          ChatRepoImpl(chatService: GeminiAiService(), box: box),
+        );
+      },
       child: Scaffold(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         appBar: CustomAppBar(

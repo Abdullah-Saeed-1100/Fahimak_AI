@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/widgets.dart';
+import 'package:hive/hive.dart';
 import '../../../core/errors/failures.dart';
 import '../../../core/services/chat_service.dart';
 import '../../../core/services/gemini_ai_service.dart';
@@ -8,8 +9,9 @@ import 'models/chat_message.dart';
 
 class ChatRepoImpl implements ChatRepo {
   final ChatService chatService;
+  final Box<ChatMessage> box;
 
-  ChatRepoImpl({required this.chatService});
+  ChatRepoImpl({required this.chatService, required this.box});
   @override
   Future<Either<Failure, String>> sendMessage({
     // required String message,
@@ -26,5 +28,20 @@ class ChatRepoImpl implements ChatRepo {
       debugPrint("Error in sendMessage in ChatRepoImpl: $e");
       return Left(ServerFailure(message: e.toString()));
     }
+  }
+
+  @override
+  Future<List<ChatMessage>> getAllMessages() async {
+    return box.values.toList();
+  }
+
+  @override
+  Future<void> addMessage(ChatMessage msg) async {
+    await box.add(msg);
+  }
+
+  @override
+  Future<void> clearMessages() async {
+    await box.clear();
   }
 }

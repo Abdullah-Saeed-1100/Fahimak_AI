@@ -4,7 +4,6 @@ import 'package:fahimak_ai/features/chat_ai/presentation/cubit/gemini_state.dart
 import 'package:fahimak_ai/features/chat_ai/domain/chat_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../dummy_data/dummy_data.dart';
 import '../../data/models/chat_message.dart';
 
 class ChatCubit extends Cubit<ChatState> {
@@ -12,11 +11,15 @@ class ChatCubit extends Cubit<ChatState> {
   final TextEditingController textController = TextEditingController();
   final ScrollController scrollController = ScrollController();
 
-  ChatCubit(this.chatRepo)
-    : super(
-        ChatState(messages: dummyMessages, showScrollToBottomButton: false),
-      ) {
+  ChatCubit(this.chatRepo) : super(ChatState(messages: [])) {
+    _loadInitialMessages(); // call this to load all messages
     scrollController.addListener(_scrollListener);
+  }
+
+  // in start load all messages
+  Future<void> _loadInitialMessages() async {
+    final messages = await chatRepo.getAllMessages();
+    emit(state.copyWith(messages: messages));
   }
 
   void _scrollListener() {
@@ -46,7 +49,7 @@ class ChatCubit extends Cubit<ChatState> {
     final text = textController.text.trim();
     if (text.isEmpty) return;
 
-    // Add outgoing message
+    // Add outgoing message in UI
     final outgoingMessage = ChatMessage(
       text: text,
       timestamp: DateTime.now(),
@@ -61,6 +64,9 @@ class ChatCubit extends Cubit<ChatState> {
     // Set loading state for AI response
     emit(state.copyWith(geminiStatus: GeminiLoading()));
 
+    // Add outgoing message in local storage
+    await chatRepo.addMessage(outgoingMessage);
+
     // Get AI response
     final result = await chatRepo.sendMessage(
       // message: '',
@@ -73,7 +79,7 @@ class ChatCubit extends Cubit<ChatState> {
           emit(state.copyWith(geminiStatus: GeminiFailure(error.message)));
         }
       },
-      (message) {
+      (message) async {
         if (!isClosed) {
           final incomingMessage = ChatMessage(
             text: message.trim(),
@@ -87,28 +93,31 @@ class ChatCubit extends Cubit<ChatState> {
             ),
           );
           scrollToBottom();
+
+          // Add incoming message in local storage
+          await chatRepo.addMessage(incomingMessage);
         }
       },
     );
   }
 
   /// Adds a dummy AI reply (for testing/demo).
-  void addDummyReply() {
-    Future.delayed(const Duration(seconds: 1), () {
-      final reply = ChatMessage(
-        text: "مرحبا! كيف يمكنني مساعدتك؟",
-        timestamp: DateTime.now(),
-        type: MessageType.incoming,
-      );
-      emit(
-        state.copyWith(
-          messages: [...state.messages, reply],
-          geminiStatus: GeminiSuccess(),
-        ),
-      );
-      scrollToBottom();
-    });
-  }
+  // void addDummyReply() {
+  //   Future.delayed(const Duration(seconds: 1), () {
+  //     final reply = ChatMessage(
+  //       text: "مرحبا! كيف يمكنني مساعدتك؟",
+  //       timestamp: DateTime.now(),
+  //       type: MessageType.incoming,
+  //     );
+  //     emit(
+  //       state.copyWith(
+  //         messages: [...state.messages, reply],
+  //         geminiStatus: GeminiSuccess(),
+  //       ),
+  //     );
+  //     scrollToBottom();
+  //   });
+  // }
 
   @override
   Future<void> close() {
