@@ -3,13 +3,19 @@ import 'package:fahimak_ai/features/chat_ai/presentation/views/chat_ai_view.dart
 import 'package:fahimak_ai/features/on_boarding/presentation/widgets/on_boarding_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:hive_flutter/adapters.dart';
 import 'core/services/cache_helper.dart';
 import 'core/utils/app_theme/app_theme.dart';
+import 'features/chat_ai/data/models/chat_message.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CacheHelper.init();
+  await Hive.initFlutter();
+  Hive.registerAdapter(ChatMessageAdapter());
+  Hive.registerAdapter(MessageTypeAdapter());
+  // فتح الصندوق
+  await Hive.openBox<ChatMessage>('messagesBox');
   runApp(const FahimakAi());
 }
 
