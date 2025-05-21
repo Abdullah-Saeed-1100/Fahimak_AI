@@ -4,6 +4,7 @@ import 'package:fahimak_ai/features/chat_ai/presentation/views/chat_ai_view.dart
 import 'package:fahimak_ai/features/on_boarding/presentation/widgets/on_boarding_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'core/services/cache_helper.dart';
 import 'core/services/gemini_ai_service.dart';
@@ -45,9 +46,23 @@ class FahimakAi extends StatelessWidget {
           return MaterialApp(
             title: 'Fahimak AI -- dev.Abdullah Saeed Bagar',
             debugShowCheckedModeBanner: false,
+
+            // for Theme Mode
             theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,
             themeMode: themeMode,
+
+            // for Localization
+            locale: const Locale('ar'),
+            supportedLocales: const [
+              Locale('ar'), // العربية فقط حالياً
+            ],
+            localizationsDelegates: const [
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            // for Navigation
             home:
                 CacheHelper.getBool(CacheKeys.onboardingCompleted)
                     ? const ChatAiView()
