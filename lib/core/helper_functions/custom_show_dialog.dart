@@ -12,8 +12,6 @@ Future<bool?> customShowDialog({
             borderRadius: BorderRadius.circular(16),
           ),
           title: Row(
-            textDirection: TextDirection.rtl,
-            // mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(Icons.warning_amber_rounded, color: Colors.red, size: 26),
               const SizedBox(width: 8),
@@ -27,7 +25,6 @@ Future<bool?> customShowDialog({
           ),
           content: Text(
             content,
-            textDirection: TextDirection.rtl,
             style: Theme.of(context).primaryTextTheme.labelMedium,
           ),
           actions: [

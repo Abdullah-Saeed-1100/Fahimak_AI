@@ -20,12 +20,8 @@ class TextFiledMessage extends StatelessWidget {
         maxLines: 5,
         // keyboardType: TextInputType.text,
         textInputAction: TextInputAction.newline,
-        textDirection: TextDirection.rtl,
         style: context.theme.primaryTextTheme.labelMedium,
-        decoration: const InputDecoration(
-          hintText: "أكتب سؤالك هنا ...",
-          hintTextDirection: TextDirection.rtl,
-        ),
+        decoration: const InputDecoration(hintText: "أكتب سؤالك هنا ..."),
         cursorHeight: 25,
         cursorRadius: Radius.circular(50),
         cursorColor: context.theme.primaryColor,

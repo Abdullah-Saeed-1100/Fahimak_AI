@@ -10,7 +10,6 @@ class SendMessageControl extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
-        textDirection: TextDirection.rtl,
         children: [
           Expanded(child: TextFiledMessage()),
           const SizedBox(width: 8.0),

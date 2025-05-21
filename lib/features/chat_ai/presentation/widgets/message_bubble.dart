@@ -44,7 +44,6 @@ class MessageBubble extends StatelessWidget {
                 )
                 : SelectableText(
                   message.text,
-                  textDirection: TextDirection.rtl,
                   textAlign: TextAlign.justify,
                   style: context.theme.textTheme.bodyMedium?.copyWith(
                     color:

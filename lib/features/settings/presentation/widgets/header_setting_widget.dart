@@ -18,16 +18,11 @@ class HeaderSettingWidget extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
         child: Row(
-          textDirection: TextDirection.rtl,
           children: [
             SvgPicture.asset(AppImages.generate),
             const SizedBox(width: 8),
             Expanded(
-              child: Text(
-                text,
-                textDirection: TextDirection.rtl,
-                style: Theme.of(context).textTheme.bodySmall,
-              ),
+              child: Text(text, style: Theme.of(context).textTheme.bodySmall),
             ),
           ],
         ),

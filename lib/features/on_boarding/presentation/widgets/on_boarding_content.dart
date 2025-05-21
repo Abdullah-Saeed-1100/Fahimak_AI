@@ -23,14 +23,16 @@ class OnBoardingContent extends StatelessWidget {
           CustomAnimated(isFromUp: true, child: Image.asset(image)),
           Text(
             title,
-            style: Theme.of(context).textTheme.headlineMedium,
-            textDirection: TextDirection.rtl,
+            style: Theme.of(
+              context,
+            ).textTheme.headlineMedium?.copyWith(color: Colors.black),
           ),
           SizedBox(height: 16),
           Text(
             description,
-            style: Theme.of(context).textTheme.bodyLarge,
-            textDirection: TextDirection.rtl,
+            style: Theme.of(
+              context,
+            ).textTheme.bodyLarge?.copyWith(color: Colors.black),
             textAlign: TextAlign.center,
           ),
           SizedBox(height: 30),

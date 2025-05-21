@@ -25,18 +25,15 @@ class CustomizeSettingsWidget extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
         child: Column(
-          textDirection: TextDirection.rtl,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
-              textDirection: TextDirection.rtl,
               children: [
                 SvgPicture.asset(AppImages.generate),
                 const SizedBox(width: 8),
                 Expanded(
                   child: Text(
                     title,
-                    textDirection: TextDirection.rtl,
                     style: Theme.of(context).primaryTextTheme.labelMedium,
                   ),
                 ),
@@ -44,7 +41,6 @@ class CustomizeSettingsWidget extends StatelessWidget {
             ),
             SizedBox(height: 12),
             Wrap(
-              textDirection: TextDirection.rtl,
               alignment: WrapAlignment.start,
               spacing: 8,
               runSpacing: 8,
@@ -54,7 +50,6 @@ class CustomizeSettingsWidget extends StatelessWidget {
             if (subtitle != null)
               Text(
                 subtitle!,
-                textDirection: TextDirection.rtl,
                 style: Theme.of(context).primaryTextTheme.labelSmall,
               ),
           ],
