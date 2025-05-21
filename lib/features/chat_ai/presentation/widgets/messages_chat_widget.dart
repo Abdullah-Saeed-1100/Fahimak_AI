@@ -13,15 +13,12 @@ class MessagesChatWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint("========= >> [ rebuild MessagesChatWidget ] << =========");
     final messagesChatState = context.select(
       (ChatCubit cubit) => cubit.state.messages,
-    );
-    debugPrint("========= >> [ rebuild MessagesChatWidget ] << =========");
-    // هذا الكود يضمن تنفيذ scrollToBottom بعد رسم الرسائل فعليًا
-    // WidgetsBinding.instance.addPostFrameCallback((_) {
-    //   context.read<ChatCubit>().scrollToBottom();
-    // });
+    ); // تحديث القائمة بعد أي عملية فيها
 
+    // لو القائمة فارغة
     if (messagesChatState.isEmpty) {
       return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -38,33 +35,28 @@ class MessagesChatWidget extends StatelessWidget {
         ),
       );
     }
-
+    // لو القائمة لا فارغة
     return ListView.builder(
       controller: context.read<ChatCubit>().scrollController,
       itemCount: messagesChatState.length,
+      reverse: true, // اعكس التمرير
       itemBuilder: (context, index) {
-        final message = messagesChatState[index];
-        return
-        // index == 0
-        //     ? Column(
-        //       children: [
-        //         SvgPicture.asset(AppImages.aiRobotSmall, height: 150),
-        //         HeaderSettingWidget(
-        //           text:
-        //               " لو تبغاني أعطيك نتائج أكثر دقة تناسب ماتحتاجة, قم بالذهاب لصفحة الإعدادات وقم بتخصيص إعدادات المحادثة لتناسب ماتريد...",
-        //         ),
-        //       ],
-        //     )
-        //     :
-        index != messagesChatState.length - 1
-            ? MessageBubble(message: message)
-            : Column(
-              children: [
-                MessageBubble(message: message),
-                // loading response
-                LoadingResponseMessageWidget(message: message),
-              ],
-            );
+        // عكس الفهرس حتى نُظهر آخر رسالة أولاً
+        final message = messagesChatState[messagesChatState.length - 1 - index];
+
+        // إذا كان هذا هو index == 0 فنحن في آخر رسالة مضافة (الأحدث)
+        // عندها نعرض الرسالة الأخيرة + ويدجت التحميل
+        if (index == 0) {
+          return Column(
+            children: [
+              MessageBubble(message: message),
+              LoadingResponseMessageWidget(message: message),
+            ],
+          );
+        }
+
+        // خلاف ذلك، نعرض الرسائل فقط
+        return MessageBubble(message: message);
       },
     );
   }

@@ -24,8 +24,8 @@ class ChatCubit extends Cubit<ChatState> {
 
   void _scrollListener() {
     final atBottom =
-        scrollController.position.pixels + 250 >=
-        scrollController.position.maxScrollExtent;
+        scrollController.position.pixels - 250 <=
+        scrollController.position.minScrollExtent;
     if (state.showScrollToBottomButton == atBottom) {
       emit(state.copyWith(showScrollToBottomButton: !atBottom));
     }
@@ -36,7 +36,7 @@ class ChatCubit extends Cubit<ChatState> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (scrollController.hasClients) {
         scrollController.animateTo(
-          scrollController.position.maxScrollExtent,
+          scrollController.position.minScrollExtent,
           duration: const Duration(milliseconds: 300),
           curve: Curves.easeOut,
         );
