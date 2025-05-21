@@ -30,7 +30,10 @@ class AppTheme {
         centerTitle: true,
       ),
       primaryTextTheme: TextTheme(
+        bodySmall: AppTextStyles.body10.copyWith(color: Colors.black),
+        labelSmall: AppTextStyles.body12.copyWith(color: Colors.black),
         labelMedium: AppTextStyles.body14.copyWith(color: Colors.black),
+        labelLarge: AppTextStyles.body16.copyWith(color: Colors.black),
       ),
       textTheme: TextTheme(
         bodyLarge: AppTextStyles.body16.copyWith(color: AppColors.primaryText),
@@ -81,7 +84,16 @@ class AppTheme {
         centerTitle: true,
       ),
       primaryTextTheme: TextTheme(
+        bodySmall: AppTextStyles.body10.copyWith(
+          color: AppColors.darkTextPrimary,
+        ),
+        labelSmall: AppTextStyles.body12.copyWith(
+          color: AppColors.darkTextPrimary,
+        ),
         labelMedium: AppTextStyles.body14.copyWith(
+          color: AppColors.darkTextPrimary,
+        ),
+        labelLarge: AppTextStyles.body16.copyWith(
           color: AppColors.darkTextPrimary,
         ),
       ),

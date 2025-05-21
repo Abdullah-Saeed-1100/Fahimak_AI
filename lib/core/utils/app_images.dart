@@ -10,6 +10,7 @@ class AppImages {
   static const String aiRobotSmall = '${path}ai_robot_small.svg';
   static const String generate = '${path}generate.svg';
   static const String aiSayHi = '${path}ai_say_hi.svg';
+  static const String delete = '${path}delete.svg';
 
   // root
   static const String robotActive = '${path}robot_active.svg';

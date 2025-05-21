@@ -18,6 +18,16 @@ class AppTextStyles {
   //   height: 1.4,
   // );
 
+  static const body10 = TextStyle(
+    decoration: TextDecoration.none,
+    fontSize: 10,
+    // fontFamily: AppFonts.tajawal,
+  );
+  static const body12 = TextStyle(
+    decoration: TextDecoration.none,
+    fontSize: 12,
+    // fontFamily: AppFonts.tajawal,
+  );
   static const body14 = TextStyle(
     decoration: TextDecoration.none,
     fontSize: 14,
