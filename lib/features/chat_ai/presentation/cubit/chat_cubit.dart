@@ -62,7 +62,10 @@ class ChatCubit extends Cubit<ChatState> {
     emit(state.copyWith(geminiStatus: GeminiLoading()));
 
     // Get AI response
-    final result = await chatRepo.sendMessage(message: text);
+    final result = await chatRepo.sendMessage(
+      // message: '',
+      conversationMessages: state.messages,
+    );
 
     result.fold(
       (error) {
