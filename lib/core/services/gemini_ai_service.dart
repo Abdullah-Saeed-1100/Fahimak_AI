@@ -38,7 +38,7 @@ class GeminiAiService implements ChatService {
     try {
       final generativeModel = GenerativeModel(
         apiKey: ApiKeys.geminiAiApiKey,
-        model: model ?? GeminiModels.gemini15Pro,
+        model: model ?? GeminiModels.gemini20Flash,
         systemInstruction:
             systemInstruction != null
                 ? Content('system', [TextPart(systemInstruction)])
@@ -51,17 +51,66 @@ class GeminiAiService implements ChatService {
 
       final response = await generativeModel.generateContent(prompt);
       return response.text?.trim() ?? 'لم أتلقَّ أي رد من الخادم.';
+    } on GenerativeAIException catch (e) {
+      debugPrint(
+        "Error in sendMessage in GeminiAiService by Gemini API error: ${e.message}",
+      );
+      throw CustomException(message: _handleGeminiError(e));
     } on Exception catch (e) {
       debugPrint("Error in sendMessage in GeminiAiService: $e");
       throw CustomException(message: "حدث خطأ, يرجى المحاولة مرة اخرى");
     }
   }
+
+  String _handleGeminiError(GenerativeAIException e) {
+    final message = e.message.toLowerCase();
+
+    if (message.contains('invalid api key')) {
+      // عندما يكون مفتاح API الذي تستخدمه غير صالح
+      return 'مفتاح API غير صالح. يرجى التحقق من إعدادات النظام.';
+    } else if (message.contains('quota') || message.contains('exceeded')) {
+      // تتجاوز الحد المسموح به يوميًا أو شهريًا من الاستعلامات (requests).
+      // تصل إلى حد الاستخدام المجاني (Free Tier) أو خطة الدفع الخاصة بك.
+      return 'تم تجاوز الحد اليومي أو الشهري للاستخدام. حاول لاحقًا أو تحقق من خطة الدفع.';
+    } else if (message.contains('model not found')) {
+      // عندما تحدد اسم نموذج (Model) غير صحيح أو غير متاح حاليًا
+      return 'النموذج المطلوب غير متوفر. يرجى اختيار نموذج مختلف.';
+    } else if (message.contains('permission denied')) {
+      // تحدث عندما لا يمتلك حسابك الصلاحيات للوصول إلى نموذج معين.
+      // تحاول الوصول إلى نموذج مدفوع وأنت على الخطة المجانية.
+      return 'ليست لديك صلاحية الوصول إلى هذا النموذج. تحقق من صلاحيات حسابك.';
+    } else if (message.contains('timeout')) {
+      // استغرقت الاستجابة من خوادم Gemini وقتًا طويلاً.
+      // واجهت الشبكة مشكلة أثناء إرسال أو استقبال البيانات.
+      return 'انتهت مهلة الاستجابة. يرجى المحاولة مرة أخرى.';
+    } else if (message.contains('resource exhausted')) {
+      // تظهر عندما تكون خوادم Google AI تحت ضغط شديد
+      //
+      return 'الموارد غير كافية للرد حاليًا. حاول لاحقًا.';
+    }
+
+    return 'حدث خطأ في الاتصال بنموذج Gemini: ${e.message}';
+  }
 }
 
 class GeminiModels {
-  static const String geminiPro = 'gemini-pro'; // مجاني
-  static const String gemini15Pro = 'gemini-1.5-pro'; // مجاني
-  static const String gemini15Flash = 'gemini-1.5-flash'; // مجاني
+  // static const String geminiPro = 'gemini-pro'; // مجاني
+  // static const String gemini15Pro = 'gemini-1.5-pro'; // مجاني
+  // static const String gemini15Flash = 'gemini-1.5-flash'; // مجاني
+  // static const String gemini25FlashPreview =
+  //     'gemini-2.5-flash-preview-04-17'; // مجاني
+  // static const String gemini25ProPreview =
+  //     'gemini-2.5-pro-preview-05-06'; // غير مجاني
+  // static const String gemini15Pro = 'gemini-1.5-pro'; // مجاني
+
+  // الي أقدر أستخدمهن
+  // مرتبين من الافضل والاحدث
   static const String gemini25FlashPreview =
-      'gemini-2.5-flash-preview-04-17'; // مجاني
+      'gemini-2.5-flash-preview-05-20'; // مجاني
+
+  static const String gemini20Flash = 'gemini-2.0-flash'; // مجاني
+
+  static const String gemini20FlashLite = 'gemini-2.0-flash-lite'; // مجاني
+
+  static const String gemini15Flash = 'gemini-1.5-flash'; // مجاني
 }

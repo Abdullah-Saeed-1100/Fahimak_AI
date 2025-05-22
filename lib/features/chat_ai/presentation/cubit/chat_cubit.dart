@@ -67,10 +67,15 @@ class ChatCubit extends Cubit<ChatState> {
     // Add outgoing message in local storage
     await chatRepo.addMessage(outgoingMessage);
 
-    // Get AI response
+    // =========== > Get AI response < ===========
+    // Get last 10 messages from conversation
+    final last10Messages =
+        state.messages.length > 10
+            ? state.messages.sublist(state.messages.length - 10)
+            : state.messages;
     final result = await chatRepo.sendMessage(
       // message: '',
-      conversationMessages: state.messages,
+      conversationMessages: last10Messages,
     );
 
     result.fold(
@@ -104,7 +109,13 @@ class ChatCubit extends Cubit<ChatState> {
   // clear all messages
   Future<void> clearMessages() async {
     await chatRepo.clearMessages();
-    emit(state.copyWith(messages: []));
+    emit(
+      state.copyWith(
+        messages: [],
+        geminiStatus: GeminiInitial(),
+        showScrollToBottomButton: false,
+      ),
+    );
     // scrollToBottom();
   }
 

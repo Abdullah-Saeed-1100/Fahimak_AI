@@ -1,7 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hive/hive.dart';
+import '../../../core/errors/exceptions.dart';
 import '../../../core/errors/failures.dart';
+import '../../../core/services/cache_helper.dart';
 import '../../../core/services/chat_service.dart';
 import '../../../core/services/gemini_ai_service.dart';
 import '../domain/chat_repo.dart';
@@ -20,10 +22,14 @@ class ChatRepoImpl implements ChatRepo {
     try {
       final response = await chatService.sendMessage(
         // message: message,
-        model: GeminiModels.gemini25FlashPreview,
+        model:
+            CacheHelper.getString(CacheKeys.resultType) ??
+            GeminiModels.gemini20Flash,
         conversationMessages: conversationMessages,
       );
       return Right(response);
+    } on CustomException catch (e) {
+      return Left(ServerFailure(message: e.message));
     } on Exception catch (e) {
       debugPrint("Error in sendMessage in ChatRepoImpl: $e");
       return Left(ServerFailure(message: e.toString()));

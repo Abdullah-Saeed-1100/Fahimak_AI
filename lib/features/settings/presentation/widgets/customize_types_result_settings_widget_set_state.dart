@@ -22,16 +22,19 @@ class _CustomizeTypesResultSettingsWidgetSetStateState
         getTypesResult().length,
         (index) => CustomAnimatedForChipWidget(
           chipWidgetInput: ChipWidgetInput(
-            name: getTypesResult()[index],
+            name: getTypesResult()[index].typeNameAr,
             isSelected:
                 CacheHelper.getString(CacheKeys.resultType) ==
-                getTypesResult()[index],
+                getTypesResult()[index].nameModelGemeni,
             onTap: () async {
               await CacheHelper.saveString(
                 CacheKeys.resultType,
-                getTypesResult()[index],
+                getTypesResult()[index].nameModelGemeni,
               );
               setState(() {});
+              debugPrint(
+                "======= resultType key => ${CacheHelper.getString(CacheKeys.resultType)}",
+              );
             },
           ),
         ),
